@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebInsight Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="text-white min-h-screen relative"
+      style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
+             background-size: cover;
+             background-position: center;">
+             <!-- Overlay -->
+<div class="absolute inset-0 bg-black bg-opacity-60 -z-10"></div>
+
+<!-- STICKY NAVBAR -->
+<nav class="bg-gray-700 bg-opacity-80 p-4 flex gap-6 sticky top-0 z-50 shadow-lg">
+    <a href="{{ url_for('homepage') }}">Home</a>
+    <a href="{{ url_for('features') }}">Features</a>
+    <a href="{{ url_for('scrapetool') }}">Scrape Tool</a>
+    <a href="{{ url_for('dashboard') }}" class="text-blue-400 font-bold">Dashboard</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('signup') }}">Signup</a>
+</nav>
+
+<!-- TABLE SECTION -->
+<div class="max-w-5xl mx-auto mt-10 px-4">
+
+    <div class="bg-gray-500 bg-opacity-90 p-6 rounded-2xl shadow-lg">
+
+        <h2 class="text-2xl font-bold text-green-400 mb-6">
+            Scraped Files
+        </h2>
+
+        {% if files %}
+        <table class="w-full border border-gray-700 text-left">
+            
+            <thead class="bg-gray-800">
+                <tr>
+                    <th class="p-3 border border-gray-700">#</th>
+                    <th class="p-3 border border-gray-700">File Name</th>
+                    <th class="p-3 border border-gray-700">Download</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for file in files %}
+                <tr class="hover:bg-gray-800">
+                    <td class="p-3 border border-gray-700">{{ loop.index }}</td>
+                    <td class="p-3 border border-gray-700">{{ file }}</td>
+                    <td class="p-3 border border-gray-700">
+
+                        <!-- DOWNLOAD BUTTON -->
+                        <a href="/{{ file }}"
+                           class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded">
+                            Download
+                        </a>
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+        {% else %}
+            <p class="text-gray-300">No scraped files available.</p>
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

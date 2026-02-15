@@ -1,0 +1,46 @@
+<!-- templates/features.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Features - WebInsight</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen text-white" 
+      style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c'); 
+             background-size: cover; 
+             background-position: center;">
+
+    <nav class="bg-gray-900 bg-opacity-70 p-4 flex gap-6 absolute top-0 left-0 w-full">
+        <a href="{{ url_for('homepage') }}">Home</a>
+        <a href="{{ url_for('features') }}">Features</a>
+        <a href="{{ url_for('scrapetool') }}">Scrape Tool</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('signup') }}">Signup</a>
+    </nav>
+
+    <div class="flex flex-col items-center text-center mt-32 bg-black bg-opacity-70 p-10 rounded-lg mx-4 md:mx-0">
+        <h1 class="text-4xl font-bold text-indigo-400 mb-6">WebInsight Features</h1>
+        <ul class="list-disc text-left text-gray-200 space-y-4 text-lg">
+    <li>
+        ⚡ <strong>Fast Web Scraping</strong><br>
+        Extract data from websites quickly and efficiently without any delay, saving your valuable time.
+    </li>
+    <li>
+        📁 <strong>CSV / Excel Export</strong><br>
+        Download scraped data in CSV or Excel format for easy analysis, reporting, and sharing.
+    </li>
+    <li>
+        🔒 <strong>Secure System</strong><br>
+        Your data and credentials are fully protected using secure storage and safe connections.
+    </li>
+    <li>
+        📊 <strong>Dashboard to View Data</strong><br>
+        Visualize and manage all your scraped data in a clean and interactive dashboard interface.
+    </li>
+</ul>
+ </div>
+
+</body>
+</html>
